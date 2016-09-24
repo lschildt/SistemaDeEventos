@@ -2,11 +2,11 @@ package br.edu.SistemaDeEventos.rn;
 
 import java.util.Date;
 
-import br.edu.SistemaDeEventos.dto.EventoDTO;
+import br.edu.SistemaDeEventos.dto.Evento;
 
 public class EventoRN {
 
-	public void cadastrarEvento(EventoDTO objEventoDTO) throws Exception {
+	public void cadastrarEvento(Evento objEventoDTO) throws Exception {
 	
 		if(!validarNome(objEventoDTO)) {
 			throw new Exception("O nome permite no máximo 150 caracteres");
@@ -18,11 +18,11 @@ public class EventoRN {
 		
 	}
 		
-	public boolean validarNome(EventoDTO objEventoDTO) {		
+	public boolean validarNome(Evento objEventoDTO) {		
 		return objEventoDTO.getNome().length() <= 150;
 	}
 	
-	public boolean validarData(EventoDTO objEventoDTO) {		
+	public boolean validarData(Evento objEventoDTO) {		
 		Date objDataAtual = new Date();
 		
 		

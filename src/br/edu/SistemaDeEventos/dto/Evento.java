@@ -2,12 +2,16 @@ package br.edu.SistemaDeEventos.dto;
 
 import java.util.Date;
 
-public class EventoDTO {
+public class Evento {
 
 	private String nome;
-	private Date dataHora;
+	private Date dataHora;		
 
-	public EventoDTO(String nome, Date dataHora) {
+	public Evento() {
+		super();
+	}
+
+	public Evento(String nome, Date dataHora) {
 		super();
 		this.nome = nome;
 		this.dataHora = dataHora;

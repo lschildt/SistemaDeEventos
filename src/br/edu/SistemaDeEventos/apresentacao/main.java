@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import br.edu.SistemaDeEventos.dto.EventoDTO;
+import br.edu.SistemaDeEventos.dto.Evento;
 import br.edu.SistemaDeEventos.rn.EventoRN;
 
 public class main {
@@ -18,7 +18,7 @@ public class main {
     		
 			Date objDataEvento = objSimpleDateFormat.parse("18/09/2016 12:00:00");
 						
-			EventoDTO objEventoDTO = new EventoDTO("Show dos Beatles", objDataEvento);				
+			Evento objEventoDTO = new Evento("Show dos Beatles", objDataEvento);				
 			EventoRN objEventoRN = new EventoRN();						
 			
 			try {
