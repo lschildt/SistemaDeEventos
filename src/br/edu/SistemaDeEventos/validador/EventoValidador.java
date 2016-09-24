@@ -2,9 +2,9 @@ package br.edu.SistemaDeEventos.validador;
 
 import java.util.Date;
 
-import br.edu.SistemaDeEventos.dto.Evento;
-import br.edu.SistemaDeEventos.exception.ValidacaoCampoObrigatorioException;
-import br.edu.SistemaDeEventos.exception.ValidacaoRegraException;
+import br.edu.SistemaDeEventos.excecao.ValidacaoCampoObrigatorioException;
+import br.edu.SistemaDeEventos.excecao.ValidacaoRegraException;
+import br.edu.SistemaDeEventos.modelo.Evento;
 
 public class EventoValidador {
 	

@@ -1,4 +1,4 @@
-package br.edu.SistemaDeEventos.exception;
+package br.edu.SistemaDeEventos.excecao;
 
 public class ValidacaoRegraException extends RuntimeException {
 

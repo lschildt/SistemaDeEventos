@@ -1,4 +1,4 @@
-package br.edu.SistemaDeEventos.dto;
+package br.edu.SistemaDeEventos.modelo;
 
 import java.util.Date;
 

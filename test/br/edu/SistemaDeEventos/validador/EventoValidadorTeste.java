@@ -4,10 +4,10 @@ package br.edu.SistemaDeEventos.validador;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.edu.SistemaDeEventos.dto.Evento;
-import br.edu.SistemaDeEventos.exception.ValidacaoCampoObrigatorioException;
+import br.edu.SistemaDeEventos.excecao.ValidacaoCampoObrigatorioException;
+import br.edu.SistemaDeEventos.excecao.ValidacaoRegraException;
 //import org.junit.Assert.assertEquals;
-import br.edu.SistemaDeEventos.exception.ValidacaoRegraException;
+import br.edu.SistemaDeEventos.modelo.Evento;
 
 
 public class EventoValidadorTeste {

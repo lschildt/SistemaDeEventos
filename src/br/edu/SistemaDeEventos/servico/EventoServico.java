@@ -1,10 +1,10 @@
-package br.edu.SistemaDeEventos.rn;
+package br.edu.SistemaDeEventos.servico;
 
 import java.util.Date;
 
-import br.edu.SistemaDeEventos.dto.Evento;
+import br.edu.SistemaDeEventos.modelo.Evento;
 
-public class EventoRN {
+public class EventoServico {
 
 	public void cadastrarEvento(Evento objEventoDTO) throws Exception {
 	
