@@ -1,6 +1,14 @@
 package br.edu.SistemaDeEventos.servico;
 
-import java.util.ArrayList;
+import br.edu.SistemaDeEventos.modelo.Evento;
+
+interface IngressoServico {
+	
+  Evento adicionarIngresso(Evento evento);
+    
+}
+
+/*import java.util.ArrayList;
 
 import br.edu.SistemaDeEventos.modelo.Ingresso;
 
@@ -18,4 +26,4 @@ public class IngressoServico {
 	}
 	
 
-}
+}*/

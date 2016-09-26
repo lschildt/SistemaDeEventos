@@ -1,5 +1,6 @@
 package br.edu.SistemaDeEventos.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Evento {
@@ -8,6 +9,7 @@ public class Evento {
 	private Date dataHoraEvento;
 	private Date dataHoraInicioVendaIngressoEvento;
 	private Date dataHoraFimVendaIngressoEvento;
+	private ArrayList<Ingresso> ingressosDisponiveisEvento;
 
 	public String getNome() {
 		return nome;
@@ -39,6 +41,14 @@ public class Evento {
 
 	public void setDataHoraFimVendaIngressoEvento(Date dataFimEvento) {
 		this.dataHoraFimVendaIngressoEvento = dataFimEvento;
+	}
+
+	public ArrayList<Ingresso> getIngressosDisponiveisEvento() {
+		return ingressosDisponiveisEvento;
+	}
+
+	public void setIngressosDisponiveisEvento(ArrayList<Ingresso> ingressosDisponiveisEvento) {
+		this.ingressosDisponiveisEvento = ingressosDisponiveisEvento;
 	}
 	
 }
