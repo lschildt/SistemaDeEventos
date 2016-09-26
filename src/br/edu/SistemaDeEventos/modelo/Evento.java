@@ -5,7 +5,9 @@ import java.util.Date;
 public class Evento {
 
 	private String nome;
-	private Date dataHora;		
+	private Date dataHoraEvento;
+	private Date dataHoraInicioVendaIngressoEvento;
+	private Date dataHoraFimVendaIngressoEvento;
 
 	public String getNome() {
 		return nome;
@@ -15,12 +17,28 @@ public class Evento {
 		this.nome = nome;
 	}
 	
-	public Date getDataHora() {
-		return dataHora;
+	public Date getDataHoraEvento() {
+		return dataHoraEvento;
 	}
 	
-	public void setDataHora(Date dataHora) {
-		this.dataHora = dataHora;
+	public void setDataHoraEvento(Date dataHora) {
+		this.dataHoraEvento = dataHora;
+	}
+
+	public Date getDataHoraInicioVendaIngressoEvento() {
+		return dataHoraInicioVendaIngressoEvento;
+	}
+
+	public void setDataHoraInicioVendaIngressoEvento(Date dataInicioEvento) {
+		this.dataHoraInicioVendaIngressoEvento = dataInicioEvento;
+	}
+
+	public Date getDataHoraFimVendaIngressoEvento() {
+		return dataHoraFimVendaIngressoEvento;
+	}
+
+	public void setDataHoraFimVendaIngressoEvento(Date dataFimEvento) {
+		this.dataHoraFimVendaIngressoEvento = dataFimEvento;
 	}
 	
 }

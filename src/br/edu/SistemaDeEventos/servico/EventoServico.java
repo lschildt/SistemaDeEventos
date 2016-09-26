@@ -26,10 +26,10 @@ public class EventoServico {
 		Date objDataAtual = new Date();
 		
 		
-		System.out.println(objEventoDTO.getDataHora().toString());
+		System.out.println(objEventoDTO.getDataHoraEvento().toString());
 		System.out.println(objDataAtual.toString());
 		
-		return objEventoDTO.getDataHora().after(objDataAtual) ||  objEventoDTO.getDataHora().equals(objDataAtual);
+		return objEventoDTO.getDataHoraEvento().after(objDataAtual) ||  objEventoDTO.getDataHoraEvento().equals(objDataAtual);
 	}	
 	
 }
