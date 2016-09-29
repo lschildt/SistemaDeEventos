@@ -8,7 +8,7 @@ public class IngressoServicoTeste {
 	
 	@Before
 	public void setUp() throws Exception {
-		ingressoServico = new IngressoServico();
+	//	ingressoServico = new IngressoServico();
 	}
 	
 }

@@ -14,7 +14,8 @@ public class EventoValidador {
 	private static final Date DATA_ATUAL = new Date();
 	private static final String MENSAGEM_DATA_EVENTO_MENOR_AGORA = "A data do evento deve ser igual ou maior que a de hoje";
 	private static final String MENSAGEM_DATA_INICIAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO = "A data inicial de venda de ingressos deve ser igual ou menor que a do evento";
-	private static final String MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO = "A data inicial de venda de ingressos deve ser igual ou menor que a do evento";
+	private static final String MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO = "A data final de venda de ingressos deve ser igual ou menor que a do evento";
+	private static final String MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_INICIAL = "A data inicial de venda de ingressos deve menor que a data final de venda";
 				
 	public EventoValidador() {
 		super();
@@ -36,17 +37,21 @@ public class EventoValidador {
 	
 	public void validarDataHoraEventoMenorQueAgora(Evento evento) {
 		if(evento.getDataHoraEvento().before(DATA_ATUAL))
-			throw new ValidacaoCampoObrigatorioExcecao(MENSAGEM_DATA_EVENTO_MENOR_AGORA);		
+			throw new ValidacaoRegraExcecao(MENSAGEM_DATA_EVENTO_MENOR_AGORA);		
 	}
 	
 	public void validarDataHoraInicialVendaIngressoEventoMaiorEvento(Evento evento) {
 		if(evento.getDataHoraInicioVendaIngressoEvento().after(evento.getDataHoraEvento()))
-			throw new ValidacaoCampoObrigatorioExcecao(MENSAGEM_DATA_INICIAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO);		
+			throw new ValidacaoRegraExcecao(MENSAGEM_DATA_INICIAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO);		
 	}
 	
 	public void validarDataHoraFinalVendaIngressoEventoMaiorEvento(Evento evento) {
 		if(evento.getDataHoraFimVendaIngressoEvento().after(evento.getDataHoraEvento()))
-			throw new ValidacaoCampoObrigatorioExcecao(MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO);		
+			throw new ValidacaoRegraExcecao(MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO);		
 	}
-			
+				
+	public void validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(Evento evento) {
+		if(evento.getDataHoraInicioVendaIngressoEvento().after(evento.getDataHoraFimVendaIngressoEvento()))
+			throw new ValidacaoRegraExcecao(MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_INICIAL);		
+	}
 }

@@ -1,5 +1,7 @@
 package br.edu.SistemaDeEventos.validador;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,22 +32,37 @@ public class EventoValidadorTeste {
 		eventoValidador.validarNomeObrigatorio(evento);
 	}
 	
-	@Test(expected = ValidacaoCampoObrigatorioExcecao.class)
+	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraEventoMenorAgora() {
 		Evento evento = new Evento();		
+		Date dataEvento = new Date(15+100,7,26);
+		evento.setDataHoraEvento(dataEvento);
 		eventoValidador.validarDataHoraEventoMenorQueAgora(evento);
 	}
 	
-	@Test(expected = ValidacaoCampoObrigatorioExcecao.class)
+	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraInicialVendaIngressoEventoMaiorEvento() {
 		Evento evento = new Evento();		
+		evento.setDataHoraEvento(new Date(15+100,7,26));
+		evento.setDataHoraInicioVendaIngressoEvento(new Date(15+100,7,27));
 		eventoValidador.validarDataHoraInicialVendaIngressoEventoMaiorEvento(evento);
-	}
-	
-	@Test(expected = ValidacaoCampoObrigatorioExcecao.class)
+		
+	}	
+
+	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraFinalVendaIngressoEventoMaiorEvento() {
-		Evento evento = new Evento();		
+		Evento evento = new Evento();				
+		evento.setDataHoraEvento(new Date(15+100,7,26));
+		evento.setDataHoraFimVendaIngressoEvento(new Date(15+100,7,27));
 		eventoValidador.validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);
 	}
-		
+	
+	@Test(expected = ValidacaoRegraExcecao.class)
+	public void deveLancarExcecaoDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento() {
+		Evento evento = new Evento();				
+		evento.setDataHoraInicioVendaIngressoEvento(new Date(15+100,7,27));
+		evento.setDataHoraFimVendaIngressoEvento(new Date(15+100,7,26));
+		eventoValidador.validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(evento);
+	}
+			
 }
