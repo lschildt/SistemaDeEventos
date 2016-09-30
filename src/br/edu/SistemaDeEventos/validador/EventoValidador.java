@@ -68,25 +68,13 @@ public class EventoValidador {
 	}
 	
 	public void validarIngressoDuplicados(Evento evento) {
-		List<Ingresso> listaIngressos = evento.getIngressosDisponiveisEvento();
-		
-		boolean existeIngressoDuplicado = false;
-		
+		List<Ingresso> listaIngressos = evento.getIngressosDisponiveisEvento();				
 		for(int x = 0; x < listaIngressos.size(); x++){
-			int duplicado = 0;
 			for(int y = 0; y < listaIngressos.size(); y++){
-				if(listaIngressos.get(x).getClass() == listaIngressos.get(y).getClass()){
-					duplicado++;
-					if(duplicado > 1){
-						existeIngressoDuplicado = true;
-					}
-
+				if(listaIngressos.get(x).equals(listaIngressos.get(y))){
+					throw new ValidacaoRegraExcecao(MENSAGEM_INGRESSO_DUPLICADO);												
 				}
-			}
-			
-		}
-		
-		if(existeIngressoDuplicado == true)
-			throw new ValidacaoRegraExcecao(MENSAGEM_INGRESSO_DUPLICADO);		
+			}			
+		}	
 	}
 }
