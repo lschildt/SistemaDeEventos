@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -87,5 +88,19 @@ public class EventoValidadorTeste {
 		
 		eventoValidador.validarIngressoDuplicados(evento);
 	}
-			
+
+	
+	@Test
+	public void devePassarSemIngressoDuplicado(){
+		Evento evento = new Evento();
+		ArrayList<Ingresso> ingressos = new ArrayList<Ingresso>();
+		ingressos.add(new IngressoBackstage());
+		ingressos.add(new IngressoPlateia());
+		ingressos.add(new IngressoPlateiaVip());
+		ingressos.add(new IngressoVip());		
+		evento.setIngressosDisponiveisEvento(ingressos);
+		Assert.assertTrue(eventoValidador.validarIngressoDuplicados(evento));
+	}
+				
+	
 }

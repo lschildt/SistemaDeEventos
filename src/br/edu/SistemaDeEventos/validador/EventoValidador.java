@@ -26,15 +26,12 @@ public class EventoValidador {
 
 	public void validar(Evento evento){
 		validarNumeroCaracteresNome(evento);
-		validarNomeObrigatorio(evento);
-		
+		validarNomeObrigatorio(evento);		
 		validarDataHoraEventoMenorQueAgora(evento);
 		validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);
 		validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(evento);
-		validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);
-		
-		validarIngressoDuplicados(evento);
-		
+		validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);		
+		validarIngressoDuplicados(evento);		
 	}	
 	
 	public void validarNumeroCaracteresNome(Evento evento) {		
@@ -67,14 +64,21 @@ public class EventoValidador {
 			throw new ValidacaoRegraExcecao(MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_INICIAL);		
 	}
 	
-	public void validarIngressoDuplicados(Evento evento) {
+	public boolean validarIngressoDuplicados(Evento evento) {
+		int contadorDuplicado = 0;
 		List<Ingresso> listaIngressos = evento.getIngressosDisponiveisEvento();				
-		for(int x = 0; x < listaIngressos.size(); x++){
-			for(int y = 0; y < listaIngressos.size(); y++){
-				if(listaIngressos.get(x).equals(listaIngressos.get(y))){
-					throw new ValidacaoRegraExcecao(MENSAGEM_INGRESSO_DUPLICADO);												
+		for (Ingresso ingressoConsultado : listaIngressos) {
+			contadorDuplicado = 0;
+			for (Ingresso ingresso : listaIngressos) {
+				if(ingressoConsultado.getClass().equals(ingresso.getClass())) {
+					contadorDuplicado++;
+					if( contadorDuplicado > 1 ) 
+					{
+						throw new ValidacaoRegraExcecao(MENSAGEM_INGRESSO_DUPLICADO);
+					}
 				}
-			}			
-		}	
+			}
+		}
+		return true;
 	}
 }
