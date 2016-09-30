@@ -6,7 +6,8 @@ import br.edu.SistemaDeEventos.modelo.Evento;
 
 public interface EventoDao {
 	
-	public void salvarEvento();
+	public void salvarEvento(Evento objEventoDTO);
+	
 	public List<Evento> listAll();
 
 }
