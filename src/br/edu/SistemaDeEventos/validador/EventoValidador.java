@@ -72,9 +72,18 @@ public class EventoValidador {
 		
 		boolean existeIngressoDuplicado = false;
 		
-		for(int x=0; x < listaIngressos.size(); x++){
+		for(int x = 0; x < listaIngressos.size(); x++){
+			int duplicado = 0;
+			for(int y = 0; y < listaIngressos.size(); y++){
+				if(listaIngressos.get(x).getClass() == listaIngressos.get(y).getClass()){
+					duplicado++;
+					if(duplicado > 1){
+						existeIngressoDuplicado = true;
+					}
+
+				}
+			}
 			
-			System.out.println(listaIngressos.get(x).getClass());
 		}
 		
 		if(existeIngressoDuplicado == true)
