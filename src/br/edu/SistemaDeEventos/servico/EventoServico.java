@@ -1,9 +1,11 @@
 package br.edu.SistemaDeEventos.servico;
 
 import java.util.Date;
+import java.util.List;
 
 import br.edu.SistemaDeEventos.dao.EventoDao;
 import br.edu.SistemaDeEventos.modelo.Evento;
+import br.edu.SistemaDeEventos.modelo.Ingresso;
 import br.edu.SistemaDeEventos.validador.EventoValidador;
 
 
@@ -26,5 +28,8 @@ public class EventoServico {
 		this.eventoDao.salvarEvento(objEventoDTO);
 	}
 	
-	
+	public List<Evento> listarEventos(){
+		List<Evento> listaEventos = eventoDao.listarEventos(); 	
+		return listaEventos;
+	}
 }

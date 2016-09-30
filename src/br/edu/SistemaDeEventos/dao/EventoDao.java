@@ -8,6 +8,6 @@ public interface EventoDao {
 	
 	public void salvarEvento(Evento objEventoDTO);
 	
-	public List<Evento> listAll();
+	public List<Evento> listarEventos();
 
 }

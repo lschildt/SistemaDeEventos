@@ -1,5 +1,8 @@
 package br.edu.SistemaDeEventos.validador;
 
+
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.junit.Before;
@@ -9,6 +12,11 @@ import br.edu.SistemaDeEventos.excecao.ValidacaoCampoObrigatorioExcecao;
 import br.edu.SistemaDeEventos.excecao.ValidacaoRegraExcecao;
 //import org.junit.Assert.assertEquals;
 import br.edu.SistemaDeEventos.modelo.Evento;
+import br.edu.SistemaDeEventos.modelo.Ingresso;
+import br.edu.SistemaDeEventos.modelo.IngressoBackstage;
+import br.edu.SistemaDeEventos.modelo.IngressoPlateia;
+import br.edu.SistemaDeEventos.modelo.IngressoPlateiaVip;
+import br.edu.SistemaDeEventos.modelo.IngressoVip;
 
 public class EventoValidadorTeste {
 	
@@ -63,6 +71,21 @@ public class EventoValidadorTeste {
 		evento.setDataHoraInicioVendaIngressoEvento(new Date(15+100,7,27));
 		evento.setDataHoraFimVendaIngressoEvento(new Date(15+100,7,26));
 		eventoValidador.validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(evento);
+	}
+	
+	@Test(expected = ValidacaoRegraExcecao.class)
+	public void deveLancarExcecaoEventoComIngressoDuplicado(){
+		Evento evento = new Evento();
+		ArrayList<Ingresso> ingressos = new ArrayList<Ingresso>();
+		ingressos.add(new IngressoBackstage());
+		ingressos.add(new IngressoPlateia());
+		ingressos.add(new IngressoPlateiaVip());
+		ingressos.add(new IngressoVip());
+		ingressos.add(new IngressoVip());
+		
+		evento.setIngressosDisponiveisEvento(ingressos);
+		
+		eventoValidador.validarIngressoDuplicados(evento);
 	}
 			
 }

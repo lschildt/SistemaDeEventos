@@ -1,10 +1,12 @@
 package br.edu.SistemaDeEventos.validador;
 
 import java.util.Date;
+import java.util.List;
 
 import br.edu.SistemaDeEventos.excecao.ValidacaoCampoObrigatorioExcecao;
 import br.edu.SistemaDeEventos.excecao.ValidacaoRegraExcecao;
 import br.edu.SistemaDeEventos.modelo.Evento;
+import br.edu.SistemaDeEventos.modelo.Ingresso;
 
 public class EventoValidador {
 	
@@ -16,13 +18,23 @@ public class EventoValidador {
 	private static final String MENSAGEM_DATA_INICIAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO = "A data inicial de venda de ingressos deve ser igual ou menor que a do evento";
 	private static final String MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO = "A data final de venda de ingressos deve ser igual ou menor que a do evento";
 	private static final String MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_INICIAL = "A data inicial de venda de ingressos deve menor que a data final de venda";
-				
+	private static final String MENSAGEM_INGRESSO_DUPLICADO = "Existe mais de um ingresso de mesmo tipo cadastrado";
+	
 	public EventoValidador() {
 		super();
 	}	
 
 	public void validar(Evento evento){
-		validarNumeroCaracteresNome(evento);	
+		validarNumeroCaracteresNome(evento);
+		validarNomeObrigatorio(evento);
+		
+		validarDataHoraEventoMenorQueAgora(evento);
+		validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);
+		validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(evento);
+		validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);
+		
+		validarIngressoDuplicados(evento);
+		
 	}	
 	
 	public void validarNumeroCaracteresNome(Evento evento) {		
@@ -53,5 +65,19 @@ public class EventoValidador {
 	public void validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(Evento evento) {
 		if(evento.getDataHoraInicioVendaIngressoEvento().after(evento.getDataHoraFimVendaIngressoEvento()))
 			throw new ValidacaoRegraExcecao(MENSAGEM_DATA_FINAL_VENDA_INGRESSO_MAIOR_DATA_INICIAL);		
+	}
+	
+	public void validarIngressoDuplicados(Evento evento) {
+		List<Ingresso> listaIngressos = evento.getIngressosDisponiveisEvento();
+		
+		boolean existeIngressoDuplicado = false;
+		
+		for(int x=0; x < listaIngressos.size(); x++){
+			
+			System.out.println(listaIngressos.get(x).getClass());
+		}
+		
+		if(existeIngressoDuplicado == true)
+			throw new ValidacaoRegraExcecao(MENSAGEM_INGRESSO_DUPLICADO);		
 	}
 }
