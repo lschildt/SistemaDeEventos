@@ -3,12 +3,14 @@ package br.edu.SistemaDeEventos.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.joda.time.LocalDate;
+
 public class Evento {
 
 	private String nome;
-	private Date dataHoraEvento;
-	private Date dataHoraInicioVendaIngressoEvento;
-	private Date dataHoraFimVendaIngressoEvento;
+	private LocalDate dataHoraEvento;
+	private LocalDate dataHoraInicioVendaIngressoEvento;
+	private LocalDate dataHoraFimVendaIngressoEvento;
 	private ArrayList<Ingresso> ingressosDisponiveisEvento;
 
 	public String getNome() {
@@ -19,27 +21,27 @@ public class Evento {
 		this.nome = nome;
 	}
 	
-	public Date getDataHoraEvento() {
+	public LocalDate getDataHoraEvento() {
 		return dataHoraEvento;
 	}
 	
-	public void setDataHoraEvento(Date dataHora) {
+	public void setDataHoraEvento(LocalDate dataHora) {
 		this.dataHoraEvento = dataHora;
 	}
 
-	public Date getDataHoraInicioVendaIngressoEvento() {
+	public LocalDate getDataHoraInicioVendaIngressoEvento() {
 		return dataHoraInicioVendaIngressoEvento;
 	}
 
-	public void setDataHoraInicioVendaIngressoEvento(Date dataInicioEvento) {
+	public void setDataHoraInicioVendaIngressoEvento(LocalDate dataInicioEvento) {
 		this.dataHoraInicioVendaIngressoEvento = dataInicioEvento;
 	}
 
-	public Date getDataHoraFimVendaIngressoEvento() {
+	public LocalDate getDataHoraFimVendaIngressoEvento() {
 		return dataHoraFimVendaIngressoEvento;
 	}
 
-	public void setDataHoraFimVendaIngressoEvento(Date dataFimEvento) {
+	public void setDataHoraFimVendaIngressoEvento(LocalDate dataFimEvento) {
 		this.dataHoraFimVendaIngressoEvento = dataFimEvento;
 	}
 

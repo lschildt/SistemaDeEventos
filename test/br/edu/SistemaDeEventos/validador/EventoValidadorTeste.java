@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,7 +44,7 @@ public class EventoValidadorTeste {
 	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraEventoMenorAgora() {
 		Evento evento = new Evento();		
-		Date dataEvento = new Date(15+100,7,26);
+		LocalDate dataEvento = LocalDate.now().minusDays(1);
 		evento.setDataHoraEvento(dataEvento);
 		eventoValidador.validarDataHoraEventoMenorQueAgora(evento);
 	}
@@ -51,8 +52,8 @@ public class EventoValidadorTeste {
 	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraInicialVendaIngressoEventoMaiorEvento() {
 		Evento evento = new Evento();		
-		evento.setDataHoraEvento(new Date(15+100,7,26));
-		evento.setDataHoraInicioVendaIngressoEvento(new Date(15+100,7,27));
+		evento.setDataHoraEvento(LocalDate.now());
+		evento.setDataHoraInicioVendaIngressoEvento(LocalDate.now().plusDays(1));
 		eventoValidador.validarDataHoraInicialVendaIngressoEventoMaiorEvento(evento);
 		
 	}	
@@ -60,16 +61,16 @@ public class EventoValidadorTeste {
 	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraFinalVendaIngressoEventoMaiorEvento() {
 		Evento evento = new Evento();				
-		evento.setDataHoraEvento(new Date(15+100,7,26));
-		evento.setDataHoraFimVendaIngressoEvento(new Date(15+100,7,27));
+		evento.setDataHoraEvento(LocalDate.now());
+		evento.setDataHoraFimVendaIngressoEvento(LocalDate.now().plusDays(1));
 		eventoValidador.validarDataHoraFinalVendaIngressoEventoMaiorEvento(evento);
 	}
 	
 	@Test(expected = ValidacaoRegraExcecao.class)
 	public void deveLancarExcecaoDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento() {
 		Evento evento = new Evento();				
-		evento.setDataHoraInicioVendaIngressoEvento(new Date(15+100,7,27));
-		evento.setDataHoraFimVendaIngressoEvento(new Date(15+100,7,26));
+		evento.setDataHoraInicioVendaIngressoEvento(LocalDate.now().plusDays(1));
+		evento.setDataHoraFimVendaIngressoEvento(LocalDate.now());
 		eventoValidador.validarDataHoraInicialVendaIngressoEventoMaiorDataHoraFinalVendaIngressoEvento(evento);
 	}
 	
