@@ -16,7 +16,7 @@ import br.edu.SistemaDeEventos.modelo.IngressoPlateia;
 import br.edu.SistemaDeEventos.modelo.IngressoPlateiaVip;
 import br.edu.SistemaDeEventos.modelo.IngressoVip;
 
-public class EventoValidadorTeste {
+public class EventoValidadorTest {
 	
 	private EventoValidador eventoValidador;
 		
