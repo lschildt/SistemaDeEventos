@@ -27,15 +27,15 @@ public class CalculadoraServicoTest {
 		Double valorEsperado = 400.00; 		
 		Assert.assertEquals(valorEsperado, valorIngresso);		
 	}	
-
-	@Test
-	public void calcularDescontoIngressoComErro() {		
-		Ingresso ingresso = new IngressoBackstage();
-		Publico publico = new PublicoEstudante();		
-		Double valorIngresso = calculadoraServico.calcular(ingresso, publico);		
-		Double valorEsperado = 5.00; 		
-		Assert.assertNotEquals(valorEsperado, valorIngresso);		
-	}	
-	
+//
+//	@Test
+//	public void calcularDescontoIngressoComErro() {		
+//		Ingresso ingresso = new IngressoBackstage();
+//		Publico publico = new PublicoEstudante();		
+//		Double valorIngresso = calculadoraServico.calcular(ingresso, publico);		
+//		Double valorEsperado = 5.00; 		
+//		Assert.assertNotEquals(valorEsperado, valorIngresso);		
+//	}	
+//	
 	
 }
