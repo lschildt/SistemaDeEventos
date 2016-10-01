@@ -13,8 +13,8 @@ import br.edu.SistemaDeEventos.modelo.Ingresso;
 public class EventoValidador {
 	
 	private static final int TAMANHO_MAXIMO_NOME = 150;
-	private static final String MENSAGEM_TAMANHO_MAXIMO_NOME = "O nome permite no máximo 150 caracteres";
-	private static final String MENSAGEM_CAMPO_NOME_OBRIGATORIO = "O nome permite no máximo 150 caracteres";
+	private static final String MENSAGEM_TAMANHO_MAXIMO_NOME = "O nome permite no maximo 150 caracteres";
+	private static final String MENSAGEM_CAMPO_NOME_OBRIGATORIO = "O nome permite no maximo 150 caracteres";
 	private static final LocalDate DATA_ATUAL = LocalDate.now();
 	private static final String MENSAGEM_DATA_EVENTO_MENOR_AGORA = "A data do evento deve ser igual ou maior que a de hoje";
 	private static final String MENSAGEM_DATA_INICIAL_VENDA_INGRESSO_MAIOR_DATA_EVENTO = "A data inicial de venda de ingressos deve ser igual ou menor que a do evento";
