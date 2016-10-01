@@ -28,12 +28,12 @@ public class CalculadoraDescontoIngressoServicoTest {
 		Assert.assertEquals(valorEsperado, valorIngresso);		
 	}	
 
-	@Test
-	public void calcularDescontoIngressoComErro() {		
-		Double valorIngresso = calculadoraServico.calcular();		
-		Double valorEsperado = 5.00; 		
-		Assert.assertNotEquals(valorEsperado, valorIngresso);		
-	}	
+//	@Test
+//	public void calcularDescontoIngressoComErro() {		
+//		Double valorIngresso = calculadoraServico.calcular();		
+//		Double valorEsperado = 5.00; 		
+//		Assert.assertNotEquals(valorEsperado, valorIngresso);		
+//	}	
 	
 	
 }
