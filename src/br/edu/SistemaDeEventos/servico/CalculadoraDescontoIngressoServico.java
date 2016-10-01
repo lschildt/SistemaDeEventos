@@ -1,13 +1,21 @@
 package br.edu.SistemaDeEventos.servico;
 
-import br.edu.SistemaDeEventos.modelo.Ingresso;
-import br.edu.SistemaDeEventos.modelo.Publico;
+import br.edu.SistemaDeEventos.modelo.ingresso.Ingresso;
+import br.edu.SistemaDeEventos.modelo.publico.Publico;
 
-public class CalculadoraDescontoIngressoServico {
+public class CalculadoraDescontoIngressoServico implements CalculadoraServico {
 	
-	public Double calcular(Ingresso ingresso, Publico publico) {
+	private Ingresso ingresso;	
+	private Publico publico;
+	
+	public CalculadoraDescontoIngressoServico(Ingresso ingresso, Publico publico) {
+		this.ingresso = ingresso;
+		this.publico = publico;
+	}
+
+	public Double calcular() {
 		Double valorIngresso = ingresso.getValor() - (ingresso.getValor() * publico.getPercentualDesconto());				
-		return valorIngresso;		
+		return valorIngresso;	
 	}
 			
 }

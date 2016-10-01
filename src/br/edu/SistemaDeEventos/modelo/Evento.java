@@ -1,9 +1,10 @@
 package br.edu.SistemaDeEventos.modelo;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.joda.time.LocalDate;
+
+import br.edu.SistemaDeEventos.modelo.ingresso.Ingresso;
 
 public class Evento {
 

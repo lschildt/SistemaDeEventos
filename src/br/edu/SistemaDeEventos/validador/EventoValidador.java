@@ -8,7 +8,7 @@ import org.joda.time.LocalDate;
 import br.edu.SistemaDeEventos.excecao.ValidacaoCampoObrigatorioExcecao;
 import br.edu.SistemaDeEventos.excecao.ValidacaoRegraExcecao;
 import br.edu.SistemaDeEventos.modelo.Evento;
-import br.edu.SistemaDeEventos.modelo.Ingresso;
+import br.edu.SistemaDeEventos.modelo.ingresso.Ingresso;
 
 public class EventoValidador {
 	

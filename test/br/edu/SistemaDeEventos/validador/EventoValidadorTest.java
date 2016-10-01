@@ -10,11 +10,11 @@ import org.junit.Test;
 import br.edu.SistemaDeEventos.excecao.ValidacaoCampoObrigatorioExcecao;
 import br.edu.SistemaDeEventos.excecao.ValidacaoRegraExcecao;
 import br.edu.SistemaDeEventos.modelo.Evento;
-import br.edu.SistemaDeEventos.modelo.Ingresso;
-import br.edu.SistemaDeEventos.modelo.IngressoBackstage;
-import br.edu.SistemaDeEventos.modelo.IngressoPlateia;
-import br.edu.SistemaDeEventos.modelo.IngressoPlateiaVip;
-import br.edu.SistemaDeEventos.modelo.IngressoVip;
+import br.edu.SistemaDeEventos.modelo.ingresso.Ingresso;
+import br.edu.SistemaDeEventos.modelo.ingresso.IngressoBackstage;
+import br.edu.SistemaDeEventos.modelo.ingresso.IngressoPlateia;
+import br.edu.SistemaDeEventos.modelo.ingresso.IngressoPlateiaVip;
+import br.edu.SistemaDeEventos.modelo.ingresso.IngressoVip;
 
 public class EventoValidadorTest {
 	
